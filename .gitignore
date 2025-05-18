@@ -1,7 +1,0 @@
-# Ignore all node_modules folders
-**/node_modules/
-
-# Ignore all PEM and other secret keys
-*.pem
-*.key
-*.env
