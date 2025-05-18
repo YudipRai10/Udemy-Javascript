@@ -1,0 +1,160 @@
+/* Reset and global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f1f5f8;
+  color: #102a42;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #617d98;
+}
+
+/* Buttons */
+.btn {
+  background: transparent;
+  color: #222;
+  padding: 0.5rem 1rem;
+  border: 2px solid #222;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+
+.btn:hover {
+  background: #222;
+  color: white;
+}
+
+/* Layout helpers */
+.section {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.section-center {
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #b985f1, #8fabdc);
+}
+
+.banner {
+  background: white;
+  padding: 2rem;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Modal */
+.modal-btn {
+  margin-top: 2rem;
+  background: #49a6e9;
+  border: none;
+  color: white;
+  border: 1px solid #49a6e9;
+  transition: all 0.25s ease-in-out;
+}
+
+.modal-btn:hover {
+  background: transparent;
+  color: #49a6e9;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(81, 82, 83, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.modal-overlay.open-modal {
+  visibility: visible;
+  z-index: 10;
+}
+
+.modal-container {
+  background: white;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 600px;
+  padding: 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ff7a7a;
+}
