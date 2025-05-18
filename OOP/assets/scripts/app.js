@@ -1,0 +1,106 @@
+class Product {
+  //   title = "DEFAULT";
+  //   imageUrl;
+  //   description;
+  //   price;
+
+  constructor(title, image, desc, price) {
+    this.title = title;
+    this.imageUrl = image;
+    this.description = desc;
+    this.price = price;
+  }
+}
+
+class ShoppingCart {
+  items = [];
+
+  addProduct(product) {
+    this.items.push(product);
+    this.render();
+  }
+
+  render() {
+    const cartEl = document.createElement("section");
+    cartEl.innerHTML = `
+        <h2>Total: \$${0}</h2>
+        <button>Order Now!</button>
+      `;
+    cartEl.className = "cart";
+    return cartEl;
+  }
+}
+
+class ProductItem {
+  constructor(product) {
+    this.product = product;
+  }
+
+  addToCart() {
+    console.log("Adding to cart", this.product);
+  }
+
+  render() {
+    const prodEl = document.createElement("li");
+    prodEl.className = "product-item";
+    prodEl.innerHTML = `
+    <div>
+      <img src="${this.product.imageUrl}" alt="${this.product.title}" >
+      <div class="product-item__content">
+        <h2>${this.product.title}</h2>
+        <h3>\$${this.product.price}</h3>
+        <p>${this.product.description}</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  `;
+    const addCartButton = prodEl.querySelector("button");
+    addCartButton.addEventListener("click", this.addToCart.bind(this));
+    return prodEl;
+  }
+}
+
+class ProductList {
+  products = [
+    new Product(
+      "A Pillow",
+      "https://www.maxpixel.net/static/photo/2x/Soft-Pillow-Green-Decoration-Deco-Snuggle-1241878.jpg",
+      19.99,
+      "A soft pillow!"
+    ),
+    new Product(
+      "A Carpet",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Ardabil_Carpet.jpg/397px-Ardabil_Carpet.jpg",
+      89.99,
+      "A carpet which you might like - or not."
+    ),
+  ];
+
+  render() {
+    const prodList = document.createElement("ul");
+    prodList.className = "product-list";
+    for (const prod of this.products) {
+      const productItem = new ProductItem(prod);
+      const prodEl = productItem.render();
+      prodList.append(prodEl);
+    }
+    return prodList;
+  }
+}
+
+class Shop {
+  render() {
+    const renderHook = document.getElementById("app");
+    this.cart = new ShoppingCart();
+    const cartEl = this.cart.render();
+
+    const productList = new ProductList();
+    const prodListEl = productList.render();
+
+    renderHook.append(cartEl);
+    renderHook.append(prodListEl);
+  }
+}
+
+const shop = new Shop();
+shop.render();
