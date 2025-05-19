@@ -69,18 +69,6 @@ p {
   color: white;
 }
 
-/* Layout helpers */
-.section {
-  padding: 5rem 0;
-  text-align: center;
-}
-
-.section-center {
-  width: 90%;
-  max-width: 1170px;
-  margin: 0 auto;
-}
-
 /* Hero */
 .hero {
   height: 100vh;
@@ -148,7 +136,7 @@ p {
   transform: scale(0.5);
 }
 
-.modal-overlay.open-modal .modal-container{
+.modal-overlay.open-modal .modal-container {
   transform: scale(1);
 }
 
