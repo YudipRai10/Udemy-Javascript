@@ -74,6 +74,7 @@ button:active {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   width: 50rem;
   max-width: 90%;
+  border: 1px solid red;
 }
 
 .product-item img {
