@@ -77,6 +77,7 @@
 // console.log(Hello.prototype);
 // console.log(Hello.__proto__);
 
+// FUNCTION CONSTRUCTOR
 // function Car(make, model, year, color) {
 //   (this.make = make),
 //     (this.model = model),
@@ -93,6 +94,7 @@
 // console.log(car1);
 // car1.drive();
 
+// CLASSES
 // class Product {
 //   constructor(name, price) {
 //     this.name = name;
@@ -122,6 +124,7 @@
 // const total2 = product2.calculateTotal(salesTax);
 // console.log("Total Price:", total2);
 
+// STATIC
 // class MathUtils {
 //   static PI = 3.14159;
 
@@ -138,31 +141,75 @@
 // console.log(MathUtils.getDiameter(20));
 // console.log(MathUtils.getCircumference(20));
 
-class User {
-  static userCount = 0;
+// class User {
+//   static userCount = 0;
 
-  constructor(username) {
-    this.username = username;
-    User.userCount++;
+//   constructor(username) {
+//     this.username = username;
+//     User.userCount++;
+//   }
+
+//   static getUserCount() {
+//     console.log(`There are ${User.userCount} users online`);
+//   }
+
+//   sayHello() {
+//     console.log(`Hello, my username is ${this.username}`);
+//   }
+// }
+
+// const user1 = new User("Tom");
+// const user2 = new User("Mat");
+// const user3 = new User("Sam");
+
+// console.log(user1.username);
+// user1.sayHello();
+// user2.sayHello();
+// user3.sayHello();
+// // console.log(user1.userCount); not in instance but instead own by class
+
+// User.getUserCount();
+
+// SUPER
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
   }
 
-  static getUserCount() {
-    console.log(`There are ${User.userCount} users online`);
-  }
-
-  sayHello() {
-    console.log(`Hello, my username is ${this.username}`);
+  move(speed) {
+    console.log(`${this.name} moves at a speed of ${speed}mph`);
   }
 }
 
-const user1 = new User("Tom");
-const user2 = new User("Mat");
-const user3 = new User("Sam");
+class Rabbit extends Animal {
+  constructor(name, age, runSpeed) {
+    super(name, age);
+    this.runSpeed = runSpeed;
+  }
 
-console.log(user1.username);
-user1.sayHello();
-user2.sayHello();
-user3.sayHello();
-// console.log(user1.userCount); not in instance but instead own by class
+  run() {
+    console.log(`${this.name} can run`);
+    super.move(this.runSpeed);
+  }
+}
 
-User.getUserCount();
+class Fish extends Animal {
+  constructor(name, age, swimSpeed) {
+    super(name, age);
+    this.swimSpeed = swimSpeed;
+  }
+
+  swim() {
+    console.log(`${this.name} can swim`);
+    super.move(this.swimSpeed);
+  }
+}
+
+const rabbit = new Rabbit("rabbit", 2, 25);
+const fish = new Fish("rabbit", 5, 12);
+
+console.log(rabbit);
+
+rabbit.run();
+fish.swim();
