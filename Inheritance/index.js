@@ -132,3 +132,21 @@ console.log("First Name:", person1.firstName);
 console.log("Last Name:", person1.lastName);
 console.log("Full Naeme:", person1.fullName);
 console.log("Age:", person1.age);
+
+const users = [1, 2, 3, 4];
+
+async function work(num) {
+  const result = await new Promise((resolve) => resolve(num * 2));
+  console.log(result);
+}
+
+async function run() {
+  
+  const promises = users.map(num => work(num));
+  await Promise.all(promises);
+  
+  console.log("All done");  
+}
+
+
+run()
